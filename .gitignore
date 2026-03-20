@@ -1,1 +1,58 @@
+# Configurações locais
+project/local_settings.py
+
+# Bytecode Python
+project/__pycache__/
+*.py[cod]
+*$py.class
+/static
+/media/pictures/2026
+
+# Ambiente virtual
+venv/
 .venv/
+env/
+ENV/
+
+# Arquivos de ambiente
+.env
+.env.*
+
+# Arquivo de banco SQLite
+db.sqlite3
+
+# Arquivos de log
+*.log
+
+# Arquivos temporários
+*.swp
+*.swo
+*~
+
+# Configuração de IDE
+.vscode/
+.idea/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de build
+dist/
+build/
+
+# Django
+staticfiles/
+
+# Cache do pytest
+.pytest_cache/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Migrations compiladas (opcional)
+*.pyc
+
+# Node (se usar Tailwind, Vite etc)
+node_modules/
