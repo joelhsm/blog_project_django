@@ -1,0 +1,22 @@
+{% if site_setup.show_header %}
+    <header class="pt-32 pb-24 px-8 max-w-screen-2xl mx-auto">
+        <div class="flex flex-col md:flex-row items-end justify-between gap-12">
+            <div class="max-w-3xl">
+                <div
+                    class="mb-6 inline-block bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase">
+                    FUNDADO EM 2026
+                </div>
+                <h1
+                    class="text-7xl md:text-9xl font-headline font-medium text-on-surface tracking-tighter leading-none mb-0 dark:text-white">
+                    {{ site_setup.title }}
+                </h1>
+                {% if site_setup.show_description %}
+                    <p class="text-xl md:text-2xl font-body text-on-surface-variant max-w-2xl italic">
+                        {{ site_setup.description }}
+                    </p>
+                {% endif %}
+            </div>
+            {% include "blog/partials/searchbar.html" %}
+        </div>
+    </header>
+{% endif %}

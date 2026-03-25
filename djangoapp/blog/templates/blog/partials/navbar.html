@@ -1,0 +1,25 @@
+
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md">
+    <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+        <div class="font-serif italic text-2xl tracking-tight text-slate-900 dark:text-slate-50">
+            {{ site_setup.title }}
+        </div>
+        {% if site_setup.show_menu %}
+            <div class="md:flex items-center space-x-8">
+                {% for link in site_setup.menulink_set.all %}
+                    {% if link.url_or_path == request.path %}
+                        <a class="text-slate-900 dark:text-white font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-slate-400 after:rounded-full font-sans font-bold tracking-widest uppercase text-xs"
+                    href="{{ link.url_or_path }}">{{ link.text }}</a>
+                    {% else %}
+                    <a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-sans font-bold tracking-widest uppercase text-xs"
+                    {% if link.new_tab %}target="_blank"{% endif %}
+                    href="{{ link.url_or_path }}">{{ link.text }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="flex items-center">
+
+        </div>
+    </div>
+</nav>

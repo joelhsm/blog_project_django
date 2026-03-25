@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="pt-br">
+
+{% include "blog/partials/head.html" %}
+
+<body 
+    class="
+        bg-background
+        text-on-background
+        selection:bg-primary-container
+        selection:text-on-primary-container
+    ">
+    {% include "blog/partials/navbar.html" %}    
+    {% block content %} {% endblock content %}
+    {% include "blog/partials/pagination_bottom.html" %}
+    {% include "blog/partials/footer.html" %}
+</body>
+</html>

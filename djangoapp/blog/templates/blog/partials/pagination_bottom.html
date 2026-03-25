@@ -1,0 +1,23 @@
+{% if site_setup.show_pagination %}
+    {% if page_obj and page_obj.has_other_pages %}
+        <div class="mt-24 flex items-center justify-center gap-8">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}" class="material-symbols-outlined p-4 border border-outline-variant/20 rounded-full hover:bg-surface-container transition-colors" data-icon="arrow_back" disabled="">arrow_back</a>
+            {% else %}
+                <button class="material-symbols-outlined p-4 border border-outline-variant/20 rounded-full hover:bg-surface-container transition-colors disabled:opacity-30" data-icon="arrow_back" disabled="">arrow_back</button>
+            {% endif %}
+
+            <div class="flex items-center gap-4">
+                <span class="font-sans font-bold text-sm text-primary">{{ page_obj.number }}</span>
+                <span class="text-outline-variant">/</span>
+                <span class="font-sans font-bold text-sm text-on-surface-variant">{{ page_obj.paginator.num_pages }}</span>
+            </div>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="material-symbols-outlined p-4 border border-outline-variant/20 rounded-full hover:bg-surface-container transition-colors" data-icon="arrow_forward">arrow_forward</a>
+            {% else %}
+                <button class="material-symbols-outlined p-4 border border-outline-variant/20 rounded-full hover:bg-surface-container transition-colors" data-icon="arrow_forward" disabled="">arrow_forward</button>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endif %}

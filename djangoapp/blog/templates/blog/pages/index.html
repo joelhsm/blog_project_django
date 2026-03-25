@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% include "blog/partials/header_index.html" %}
+    <main class="px-8 max-w-screen-2xl mx-auto">
+        {% include "blog/partials/pagination_top.html" %}
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+            {% include 'blog/partials/primary_card.html' %}
+            {% include 'blog/partials/secodary_card.html' %}
+            {% include 'blog/partials/standard_card.html' %}
+        </div>
+    </main>
+{% endblock content %}

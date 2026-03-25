@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Curator | Professional Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "secondary-dim": "#44546a",
+                        "background": "#f7f9fb",
+                        "inverse-on-surface": "#9a9d9f",
+                        "tertiary-dim": "#4f516c",
+                        "on-secondary": "#f7f9ff",
+                        "secondary-fixed-dim": "#c5d6f0",
+                        "primary-fixed-dim": "#c7d5ee",
+                        "surface-bright": "#f7f9fb",
+                        "surface-variant": "#d9e4ea",
+                        "on-surface": "#2a3439",
+                        "primary-fixed": "#d5e3fd",
+                        "secondary": "#506076",
+                        "surface-dim": "#cfdce3",
+                        "error-dim": "#4e0309",
+                        "on-primary-fixed": "#324054",
+                        "on-primary-fixed-variant": "#4e5c71",
+                        "on-tertiary-fixed-variant": "#555873",
+                        "tertiary-fixed-dim": "#cecfef",
+                        "surface-container": "#e8eff3",
+                        "error-container": "#fe8983",
+                        "surface-container-highest": "#d9e4ea",
+                        "surface-tint": "#515f74",
+                        "on-secondary-fixed": "#314055",
+                        "outline-variant": "#a9b4b9",
+                        "on-secondary-container": "#435368",
+                        "inverse-surface": "#0b0f10",
+                        "on-tertiary-container": "#4b4e69",
+                        "surface": "#f7f9fb",
+                        "on-surface-variant": "#566166",
+                        "on-error": "#fff7f6",
+                        "primary-container": "#d5e3fd",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#d3e4fe",
+                        "tertiary-fixed": "#dcddfe",
+                        "on-secondary-fixed-variant": "#4d5d73",
+                        "primary": "#515f74",
+                        "surface-container-low": "#f0f4f7",
+                        "on-primary": "#f6f7ff",
+                        "on-background": "#2a3439",
+                        "on-primary-container": "#455367",
+                        "outline": "#717c82",
+                        "surface-container-high": "#e1e9ee",
+                        "error": "#9f403d",
+                        "primary-dim": "#455368",
+                        "on-tertiary": "#fbf8ff",
+                        "secondary-container": "#d3e4fe",
+                        "tertiary": "#5b5d78",
+                        "inverse-primary": "#d5e3fd",
+                        "tertiary-container": "#dcddfe",
+                        "on-tertiary-fixed": "#393c55",
+                        "on-error-container": "#752121"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f7f9fb;
+            color: #2a3439;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Newsreader', serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-900/80 backdrop-blur-md">
+<div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+<div class="font-serif italic text-2xl tracking-tight text-slate-900 dark:text-slate-50">
+                The Curator
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-900 dark:text-white font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-slate-400 after:rounded-full font-sans font-bold tracking-widest uppercase text-xs" href="#">LATEST</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-sans font-bold tracking-widest uppercase text-xs" href="#">ARCHIVE</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-sans font-bold tracking-widest uppercase text-xs" href="#">SERIES</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-colors font-sans font-bold tracking-widest uppercase text-xs" href="#">ABOUT</a>
+</div>
+<div class="flex items-center">
+<button class="p-2 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all duration-300">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="pt-48 pb-24 px-8 max-w-screen-2xl mx-auto">
+<div class="flex flex-col md:flex-row items-end justify-between gap-12">
+<div class="max-w-3xl">
+<div class="mb-4 inline-block bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase">
+                    ESTABLISHED 2024
+                </div>
+<h1 class="text-7xl md:text-9xl font-headline font-medium text-on-surface tracking-tighter leading-none mb-8">
+                    The Curator
+                </h1>
+<p class="text-xl md:text-2xl font-body text-on-surface-variant leading-relaxed max-w-2xl italic">
+                    An intentional archive of contemporary thought, digital craftsmanship, and the intersections of technology and human spirit.
+                </p>
+</div>
+<!-- Prominent Search Bar -->
+<div class="w-full md:w-96">
+<div class="relative group">
+<input class="w-full h-14 pl-14 pr-6 bg-surface-container-low border-none rounded-full text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-300" placeholder="Explore the archive..." type="text"/>
+<div class="absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content: Curated Grid -->
+<main class="px-8 pb-32 max-w-screen-2xl mx-auto">
+<!-- Section Header -->
+<div class="flex items-center justify-between mb-16">
+<h2 class="text-3xl font-headline text-on-surface">Selected Writings</h2>
+<div class="h-[1px] flex-grow mx-12 bg-outline-variant/20 hidden md:block"></div>
+<div class="font-label text-xs font-bold tracking-widest text-on-surface-variant uppercase">PAGE 01 / 12</div>
+</div>
+<!-- Bento Inspired Asymmetric Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12">
+<!-- Featured Post (Large) -->
+<article class="md:col-span-8 group cursor-pointer">
+<div class="bg-surface-container-lowest overflow-hidden transition-colors duration-500 hover:bg-surface-container-high">
+<div class="relative aspect-[16/9] mb-8 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="Abstract minimalist desk setup with notebook and pen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2NESZS33HQ_MsWlc6qXMYix11WpMzaSe0sAIjort1gSgn7HBML7iBZOA_ZiJEDt_SREO6tm4QvgqrSjJpfTkpGQLl8jF9FDm8BdFmXVg1QD3a9Lc8tx8fBlkzl-n4TCyKQ3lkpwsqNcewuY0Thv6pmesSTgoqgNBEQTsDeditSv6sw_lSOuemD-h4OvVzygg44-EHPZVJ5f8ygt6I72o9IpbCIwup9Wp0XqlEfe_SBThRHhLcI2EX69rOaeIyVa5OB4GrRAg28Q"/>
+<div class="absolute top-6 left-6">
+<span class="bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label text-[10px] font-bold tracking-widest uppercase">ESSAY</span>
+</div>
+</div>
+<div class="px-2">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">MARCH 12, 2024</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">12 MIN READ</span>
+</div>
+<h3 class="text-4xl md:text-5xl font-headline text-on-surface mb-6 leading-tight group-hover:text-primary transition-colors">
+                            The Quiet Architecture of Digital Concentration
+                        </h3>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-2xl">
+                            How we build spaces for focus in an era of engineered distraction. An exploration into the philosophy of deep work and the digital tools that either facilitate or destroy our creative momentum.
+                        </p>
+<button class="group/btn flex items-center gap-2 font-label text-xs font-bold tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors">
+                            Read More 
+                            <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Secondary Post (Tall) -->
+<article class="md:col-span-4 group cursor-pointer">
+<div class="bg-surface-container-lowest h-full transition-colors duration-500 hover:bg-surface-container-high">
+<div class="relative aspect-[4/5] mb-8 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105" data-alt="Monochromatic architecture shadows on a concrete wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLxx7IbhN1QsvBp_dAzRR3e35l92iZjCZF2HQsxMB2cEAxuX6llS1EjvEUoQY_QkB2Y_8NbYP9xA0BY8ey4lZLaW962UgWKgOmNwjqlAoy_-7l3zrtVyqujRlarUFf8jSnlN62wnJTZtmHnZDhwlg__e8q8YgZJH80bFOGYQjTpLVVaz0xHUv1uJuPRnOkN9b0WF3YIPd4yWrH5EpgQddAHuSluFmeBJBLHk2JVzhOv-Pn3Mycp5XGRUbDkV-PAK6sQqk4gzZSiQ"/>
+<div class="absolute top-6 left-6">
+<span class="bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label text-[10px] font-bold tracking-widest uppercase">DESIGN</span>
+</div>
+</div>
+<div class="px-2">
+<div class="flex items-center gap-4 mb-4">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">MARCH 10</span>
+<span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">6 MIN</span>
+</div>
+<h3 class="text-3xl font-headline text-on-surface mb-4 leading-tight group-hover:text-primary transition-colors">
+                            Structural Integrity in Typography
+                        </h3>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                            Looking at the history of serif fonts and their resurgence in modern user interfaces.
+                        </p>
+<button class="group/btn flex items-center gap-2 font-label text-xs font-bold tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors">
+                            Read More 
+                            <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Row 2: Standard Cards -->
+<article class="md:col-span-4 group cursor-pointer mt-8">
+<div class="bg-surface-container-lowest transition-colors duration-500 hover:bg-surface-container-high">
+<div class="relative aspect-video mb-6 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700" data-alt="Blurry blue computer screens in dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvupbRUVEsVvL46KOJaznMENbnyBip6fEUzL026lBA7h6i-HGvbDUshHBvJaxfgarwPY9rBTBajTHt-hhMWnce7E-DOTju4zJVVrquiXSVHRQjSk8lie7hrvjNkg1c0bGzewhpMHHCpe7_sRpZwKLwBXxpGoEnORj8uOXZHdmqHmxklugfbJylfvYgBeXL_1vSu8DIajFdenZpO6iqX6qFOweQBIt5XVAW0WqaE01Y9tBq-VQVtX6h5IC3ploOJP7N7wUm4RKyiw"/>
+</div>
+<div class="px-2">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase mb-3 block">TECHNOLOGY</span>
+<h3 class="text-2xl font-headline text-on-surface mb-4 group-hover:text-primary transition-colors">The Ghost in the Neural Network</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">A deep dive into the unpredictable emergent behaviors of large language models.</p>
+<button class="font-label text-[10px] font-bold tracking-widest uppercase underline underline-offset-8">View Entry</button>
+</div>
+</div>
+</article>
+<article class="md:col-span-4 group cursor-pointer mt-8">
+<div class="bg-surface-container-lowest transition-colors duration-500 hover:bg-surface-container-high">
+<div class="relative aspect-video mb-6 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700" data-alt="Minimalist lamp lighting a dark room corner" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVp9jy52gjzjsEIo0ZJuRiMs47OcOX48TYRUk2SKteW4lrCTQu1-UXK8WZKQ0xJvcHEx-0-V-6K5cGTpICLzoGkgBFFCoSfMFnb8QPA9H_ctCs6H6naOehvNRtQPGnRYnIheBaYny4RxLZ_Yauyd3sWhqJgqiPGaCtK96epMQ3qI-ovpvd2Zc-IQ5HFyik22D7QafWwT7o2kvBWnrK1WVs7iRGwJzZzhYe24VFXruPrBogHlXRByQ41U250QyWgys8Kr6AA9ULKA"/>
+</div>
+<div class="px-2">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase mb-3 block">CULTURE</span>
+<h3 class="text-2xl font-headline text-on-surface mb-4 group-hover:text-primary transition-colors">The Luxury of Offline Time</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Why disconnection has become the ultimate status symbol in the 21st century.</p>
+<button class="font-label text-[10px] font-bold tracking-widest uppercase underline underline-offset-8">View Entry</button>
+</div>
+</div>
+</article>
+<article class="md:col-span-4 group cursor-pointer mt-8">
+<div class="bg-surface-container-lowest transition-colors duration-500 hover:bg-surface-container-high">
+<div class="relative aspect-video mb-6 overflow-hidden">
+<img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700" data-alt="Top down view of professional aesthetic workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDhUq5SZ_yFFcBCzBfp0LGoA63mmWeFaEd-d7-TBh_rThRtUKD_Sm0pl3qH2bSlBm-0gyecv5ojPjmrZCqXwvmbbA0vYUnew7PwPyS77Yjz59rINTEZn36zQm9IBtFwSZ6HnWp2wyTXp4dT_84zG7QG8S0y_rI2K8OJ9P3tpOBHEEEYImou0C9Twch24HMwbV6p5X7XBelaCkwfIMQnEY-5qpAEdqSecbvPT5uPjW08CmJuL1IIJ6buwRVE5zSbvKLymydQt3S0g"/>
+</div>
+<div class="px-2">
+<span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase mb-3 block">CRAFT</span>
+<h3 class="text-2xl font-headline text-on-surface mb-4 group-hover:text-primary transition-colors">Building for Decades, Not Days</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Principles of durable software design and sustainable engineering practices.</p>
+<button class="font-label text-[10px] font-bold tracking-widest uppercase underline underline-offset-8">View Entry</button>
+</div>
+</div>
+</article>
+</div>
+<!-- Pull Quote Section -->
+<section class="my-32 max-w-4xl">
+<div class="flex items-start gap-8">
+<div class="w-1 bg-primary h-32 flex-shrink-0"></div>
+<blockquote class="text-4xl md:text-5xl font-headline text-primary italic leading-tight">
+                    "The role of the digital curator is not to show everything, but to find the thread that connects the noise into a narrative."
+                </blockquote>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-24 bg-slate-950 dark:bg-black">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="font-serif italic text-xl text-white">The Curator</div>
+<p class="text-slate-400 font-sans text-xs tracking-wide leading-loose">
+                    An independent publication dedicated to the preservation of high-quality digital discourse and aesthetic intelligence.
+                </p>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="text-white font-sans text-xs font-bold tracking-widest uppercase mb-2">NAVIGATE</h4>
+<a class="text-slate-500 hover:text-white transition-colors duration-200 font-sans text-xs font-bold tracking-widest uppercase" href="#">LATEST ARTICLES</a>
+<a class="text-slate-500 hover:text-white transition-colors duration-200 font-sans text-xs font-bold tracking-widest uppercase" href="#">THE ARCHIVE</a>
+<a class="text-slate-500 hover:text-white transition-colors duration-200 font-sans text-xs font-bold tracking-widest uppercase" href="#">CONTRIBUTORS</a>
+</div>
+<div class="flex flex-col space-y-4">
+<h4 class="text-white font-sans text-xs font-bold tracking-widest uppercase mb-2">SOCIAL</h4>
+<a class="text-slate-500 hover:text-white transition-colors duration-200 font-sans text-xs font-bold tracking-widest uppercase" href="#">INSTAGRAM</a>
+<a class="text-slate-500 hover:text-white transition-colors duration-200 font-sans text-xs font-bold tracking-widest uppercase" href="#">LINKEDIN</a>
+<a class="text-slate-500 hover:text-white transition-colors duration-200 font-sans text-xs font-bold tracking-widest uppercase" href="#">RSS FEED</a>
+</div>
+<div class="flex flex-col space-y-6">
+<h4 class="text-white font-sans text-xs font-bold tracking-widest uppercase mb-2">NEWSLETTER</h4>
+<div class="relative">
+<input class="w-full bg-slate-900 border-none text-white text-xs p-4 focus:ring-1 focus:ring-slate-700" placeholder="email@address.com" type="email"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 text-white">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<p class="text-slate-500 font-sans text-[10px] tracking-widest uppercase">© 2024 THE CURATOR. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+</body></html>

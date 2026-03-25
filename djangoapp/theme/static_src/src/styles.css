@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  /* Colors */
+  --color-secondary-dim: #44546a;
+  --color-background: #f7f9fb;
+  --color-inverse-on-surface: #9a9d9f;
+  --color-tertiary-dim: #4f516c;
+  --color-on-secondary: #f7f9ff;
+  --color-secondary-fixed-dim: #c5d6f0;
+  --color-primary-fixed-dim: #c7d5ee;
+  --color-surface-bright: #f7f9fb;
+  --color-surface-variant: #d9e4ea;
+  --color-on-surface: #2a3439;
+  --color-primary-fixed: #d5e3fd;
+  --color-secondary: #506076;
+  --color-surface-dim: #cfdce3;
+  --color-error-dim: #4e0309;
+  --color-on-primary-fixed: #324054;
+  --color-on-primary-fixed-variant: #4e5c71;
+  --color-on-tertiary-fixed-variant: #555873;
+  --color-tertiary-fixed-dim: #cecfef;
+  --color-surface-container: #e8eff3;
+  --color-error-container: #fe8983;
+  --color-surface-container-highest: #d9e4ea;
+  --color-surface-tint: #515f74;
+  --color-on-secondary-fixed: #314055;
+  --color-outline-variant: #a9b4b9;
+  --color-on-secondary-container: #435368;
+  --color-inverse-surface: #0b0f10;
+  --color-on-tertiary-container: #4b4e69;
+  --color-surface: #f7f9fb;
+  --color-on-surface-variant: #566166;
+  --color-on-error: #fff7f6;
+  --color-primary-container: #d5e3fd;
+  --color-surface-container-lowest: #ffffff;
+  --color-secondary-fixed: #d3e4fe;
+  --color-tertiary-fixed: #dcddfe;
+  --color-on-secondary-fixed-variant: #4d5d73;
+  --color-primary: #515f74;
+  --color-surface-container-low: #f0f4f7;
+  --color-on-primary: #f6f7ff;
+  --color-on-background: #2a3439;
+  --color-on-primary-container: #455367;
+  --color-outline: #717c82;
+  --color-surface-container-high: #e1e9ee;
+  --color-error: #9f403d;
+  --color-primary-dim: #455368;
+  --color-on-tertiary: #fbf8ff;
+  --color-secondary-container: #d3e4fe;
+  --color-tertiary: #5b5d78;
+  --color-inverse-primary: #d5e3fd;
+  --color-tertiary-container: #dcddfe;
+  --color-on-tertiary-fixed: #393c55;
+  --color-on-error-container: #752121;
+
+  /* Fonts */
+  --font-headline: "Newsreader", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-label: "Manrope", sans-serif;
+
+  /* Border radius */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 0.75rem;
+}
+
+@source "../../../**/*";

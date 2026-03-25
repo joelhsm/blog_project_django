@@ -42,7 +42,7 @@ dist/
 build/
 
 # Django
-staticfiles/
+/data/
 
 # Cache do pytest
 .pytest_cache/

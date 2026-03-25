@@ -1,0 +1,16 @@
+.dark .bg-background {
+    background-color: var(--color-on-background);
+
+}
+
+.dark .text-on-background {
+    color: var(--color-background);
+}
+
+.dark .text-on-surface {
+    color: var(--color-background);
+}
+
+.dark .text-on-surface-variant {
+    color: var(--color-secondary-fixed-dim);
+}
