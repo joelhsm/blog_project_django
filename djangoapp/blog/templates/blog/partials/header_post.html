@@ -1,18 +1,32 @@
 {% if site_setup.show_header %}
-<header class="mb-16 max-w-4xl">
-    <div class="mb-6 flex items-center gap-4">
-        <span class="font-label text-xs font-bold tracking-widest uppercase text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-sm">ESSAY</span>
-        <span class="font-label text-xs font-bold tracking-widest uppercase text-on-surface-variant">8 MIN READ</span>
-    </div>
-    <h1 class="font-headline text-5xl md:text-7xl font-bold text-on-surface mb-8 tracking-tight leading-[1.1]">The Silent Architecture of Coastal Resilience.</h1>
-    <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container">
-            <img class="w-full h-full object-cover" data-alt="Portrait of a male editorial writer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCJEGRnZ7e-0e8HE63VQklgp1cTT0aXGXcJjn5Ckkc2VyLQcbxAVZnJv88G9KYi1dhuaT0kehXQiB367Z-XWPDZRv-kBq3Fd4xk8eY1Uepa45D4j14YMSDOUJ3K1xsYNhqwVI0ZC1UTtKb3LTXb3FxgGeJDM04kkYILvpi8bZUZPyGlNykEbpoG1z-Sly9MvnMefYpJvWd3dRt3Y0xcbG3V-5xmVF1qGBI2m70yJCJ6SLzEmpZVmqbzbqrTBc9CcuSqYiXu_E6zw"/>
-        </div>
-        <div>
-            <p class="font-label text-sm font-bold text-on-surface">JULIAN VANCE</p>
-            <p class="font-label text-xs text-on-surface-variant uppercase tracking-wide">ARCHITECTURE CRITIC • OCT 12, 2023</p>
-        </div>
-    </div>
-</header>
+    {% if post %}
+        <header class="mb-16 max-w-4xl">
+            <div class="mb-6 flex items-center gap-4">
+                {% if post.category %}
+                    <a href="{% url 'blog:category' post.category.slug %}" class="font-label text-xs font-bold tracking-widest uppercase text-on-surface-variant bg-surface-container-low px-3 py-1 rounded-sm">{{ post.category.name }}</a>
+                {% endif %}
+                <span class="font-label text-xs font-bold tracking-widest uppercase text-on-surface-variant">8 MIN DE LEITURA</span>
+            </div>
+            {% if post.title %}
+                <h1 class="font-headline text-5xl md:text-7xl font-bold text-on-surface mb-8 tracking-tight leading-[1.1]">{{ post.title }}</h1>
+            {% endif %}
+            <div class="flex items-center gap-4">
+                
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container">
+                    <img class="w-full h-full object-cover" data-alt="Portrait of a male editorial writer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCJEGRnZ7e-0e8HE63VQklgp1cTT0aXGXcJjn5Ckkc2VyLQcbxAVZnJv88G9KYi1dhuaT0kehXQiB367Z-XWPDZRv-kBq3Fd4xk8eY1Uepa45D4j14YMSDOUJ3K1xsYNhqwVI0ZC1UTtKb3LTXb3FxgGeJDM04kkYILvpi8bZUZPyGlNykEbpoG1z-Sly9MvnMefYpJvWd3dRt3Y0xcbG3V-5xmVF1qGBI2m70yJCJ6SLzEmpZVmqbzbqrTBc9CcuSqYiXu_E6zw"/>
+                </div>
+                
+                <div>
+                    {% if post.created_by %}
+                        <a href="{% url 'blog:created_by' post.created_by.pk %}" class="font-label text-sm font-bold text-on-surface uppercase">{{ post.created_by.get_full_name }}</a>
+                    {% else %}
+                        <p class="font-label text-sm font-bold text-on-surface">Anônimo</p>
+                    {% endif %}
+                    {% if post.created_at %}
+                        <p class="font-label text-xs text-on-surface-variant uppercase tracking-wide">{{ post.created_at|date:"F j, Y" }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+    {% endif %}
 {% endif %}

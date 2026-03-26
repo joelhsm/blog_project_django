@@ -28,3 +28,54 @@ h3,
 .text-on-surface-variant {
     color: var(--color-on-surface-variant);
 }
+
+.image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+/* Dracula theme for code blocks */
+
+pre {
+    background: var(--color-on-background);
+    color: var(--color-background);
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 20px 0;
+}
+
+pre code {
+    background: transparent;
+    color: inherit;
+    font-family: "Fira Code", "JetBrains Mono", "Consolas", monospace;
+}
+
+/* Scrollbar estilizada (opcional) */
+pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: #1e1f29;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: #44475a;
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: #6272a4;
+}

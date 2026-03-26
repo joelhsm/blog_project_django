@@ -1,7 +1,7 @@
 {% if site_setup.show_pagination %}
-<div class="flex items-center justify-between mb-16">
-    <h2 class="text-3xl font-headline text-on-surface">Posts Selecionados</h2>
-    <div class="h-[1px] flex-grow mx-12 bg-outline-variant/20 hidden md:block"></div>
-    <div class="font-label text-xs font-bold tracking-widest text-on-surface-variant uppercase">PÁGINA 01 / 12</div>
-</div>
+    <div class="flex items-center justify-between mb-16">
+        <h2 class="text-3xl font-headline text-on-surface">Posts Selecionados</h2>
+        <div class="h-[1px] flex-grow mx-12 bg-outline-variant/20 hidden md:block"></div>
+        <div class="font-label text-xs font-bold tracking-widest text-on-surface-variant uppercase">PÁGINA {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</div>
+    </div>
 {% endif %}

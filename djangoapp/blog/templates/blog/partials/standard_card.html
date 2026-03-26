@@ -1,58 +1,28 @@
-<article class="md:col-span-4 group cursor-pointer mt-8">
-    <div class="bg-surface-container-lowest transition-colors duration-500 hover:bg-surface-container-high">
-        <div class="relative aspect-video mb-6 overflow-hidden">
-            <img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700"
-                data-alt="Blurry blue computer screens in dark room"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvupbRUVEsVvL46KOJaznMENbnyBip6fEUzL026lBA7h6i-HGvbDUshHBvJaxfgarwPY9rBTBajTHt-hhMWnce7E-DOTju4zJVVrquiXSVHRQjSk8lie7hrvjNkg1c0bGzewhpMHHCpe7_sRpZwKLwBXxpGoEnORj8uOXZHdmqHmxklugfbJylfvYgBeXL_1vSu8DIajFdenZpO6iqX6qFOweQBIt5XVAW0WqaE01Y9tBq-VQVtX6h5IC3ploOJP7N7wUm4RKyiw" />
-        </div>
-        <div class="px-2">
-            <span
-                class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase mb-3 block">TECHNOLOGY</span>
-            <h3 class="text-2xl font-headline text-on-surface mb-4 group-hover:text-primary transition-colors">The Ghost
-                in the Neural Network</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed mb-6">A deep dive into the unpredictable emergent
-                behaviors of large language models.</p>
-            <button class="font-label text-[10px] font-bold tracking-widest uppercase underline underline-offset-8">View
-                Entry</button>
-        </div>
-    </div>
-</article>
-<article class="md:col-span-4 group cursor-pointer mt-8">
-    <div class="bg-surface-container-lowest transition-colors duration-500 hover:bg-surface-container-high">
-        <div class="relative aspect-video mb-6 overflow-hidden">
-            <img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700"
-                data-alt="Minimalist lamp lighting a dark room corner"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVp9jy52gjzjsEIo0ZJuRiMs47OcOX48TYRUk2SKteW4lrCTQu1-UXK8WZKQ0xJvcHEx-0-V-6K5cGTpICLzoGkgBFFCoSfMFnb8QPA9H_ctCs6H6naOehvNRtQPGnRYnIheBaYny4RxLZ_Yauyd3sWhqJgqiPGaCtK96epMQ3qI-ovpvd2Zc-IQ5HFyik22D7QafWwT7o2kvBWnrK1WVs7iRGwJzZzhYe24VFXruPrBogHlXRByQ41U250QyWgys8Kr6AA9ULKA" />
-        </div>
-        <div class="px-2">
-            <span
-                class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase mb-3 block">CULTURE</span>
-            <h3 class="text-2xl font-headline text-on-surface mb-4 group-hover:text-primary transition-colors">The
-                Luxury of Offline Time</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Why disconnection has become the ultimate
-                status symbol in the 21st century.</p>
-            <button class="font-label text-[10px] font-bold tracking-widest uppercase underline underline-offset-8">View
-                Entry</button>
-        </div>
-    </div>
-</article>
-<article class="md:col-span-4 group cursor-pointer mt-8">
-    <div class="bg-surface-container-lowest transition-colors duration-500 hover:bg-surface-container-high">
-        <div class="relative aspect-video mb-6 overflow-hidden">
-            <img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700"
-                data-alt="Top down view of professional aesthetic workspace"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDhUq5SZ_yFFcBCzBfp0LGoA63mmWeFaEd-d7-TBh_rThRtUKD_Sm0pl3qH2bSlBm-0gyecv5ojPjmrZCqXwvmbbA0vYUnew7PwPyS77Yjz59rINTEZn36zQm9IBtFwSZ6HnWp2wyTXp4dT_84zG7QG8S0y_rI2K8OJ9P3tpOBHEEEYImou0C9Twch24HMwbV6p5X7XBelaCkwfIMQnEY-5qpAEdqSecbvPT5uPjW08CmJuL1IIJ6buwRVE5zSbvKLymydQt3S0g" />
-        </div>
-        <div class="px-2">
-            <span
-                class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase mb-3 block">CRAFT</span>
-            <h3 class="text-2xl font-headline text-on-surface mb-4 group-hover:text-primary transition-colors">Building
-                for Decades, Not Days</h3>
-            <p class="text-sm text-on-surface-variant leading-relaxed mb-6">Principles of durable software design and
-                sustainable engineering practices.</p>
-            <button class="font-label text-[10px] font-bold tracking-widest uppercase underline underline-offset-8">View
-                Entry</button>
-        </div>
-    </div>
-</article>
-</div>
+{% if page_obj|slice:"2:" %}
+    {% for item in page_obj|slice:"2:" %}   
+        <article class="md:col-span-4 group mt-8">
+            <div class="bg-surface-container-lowest transition-colors duration-500 hover:bg-surface-container-high">
+                {% if item.cover %}
+                    <div class="relative aspect-video mb-6 overflow-hidden">
+                        <img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700"
+                            data-alt="Blurry blue computer screens in dark room"
+                            src="{{ item.cover.url }}" />
+                    </div>
+                {% endif %}
+                <div class="px-2">
+                    {% if item.category %}
+                        <span
+                            class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase mb-3 block">{{ item.category.name }}</span>
+                    {% endif %}
+                    {% if item.title %}
+                        <h3 class="text-2xl font-headline text-on-surface mb-4 group-hover:text-primary transition-colors">{{ item.title }}</h3>
+                    {% endif %}
+                    {% if item.excerpt %}
+                        <p class="text-sm text-on-surface-variant leading-relaxed mb-6">{{ item.excerpt }}</p>
+                    {% endif %}
+                    <a href="{{ item.get_absolute_url }}" class="font-label text-[10px] font-bold tracking-widest uppercase underline underline-offset-8">Leia mais</a>
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+{% endif %}

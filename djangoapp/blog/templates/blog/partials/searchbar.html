@@ -1,24 +1,44 @@
 {% if site_setup.show_search %}
-<div class="w-full md:w-96">
-    <div class="relative group">
-        <input
-            class="
-            w-full h-14 pl-14 pr-6
-            bg-surface-container-low
-            border-none
-            rounded-full
-            text-on-surface
-            placeholder:text-outline
-            focus:ring-2
-            focus:ring-primary/20
-            focus:bg-surface-container-lowest
-            transition-all
-            duration-300
-            "
-            placeholder="Explore o blog..." type="text" />
-        <div class="absolute left-5 top-1/2 -translate-y-1/2 text-on-surface-variant">
-            <span class="material-symbols-outlined" data-icon="search">search</span>
+    <div class="w-full md:w-96">
+        <div class="relative group">
+            <form action="{% url 'blog:search' %}" method="GET">
+                <input
+                    class="
+                    w-full h-14 pl-6 pr-16
+                    bg-surface-container-low
+                    border-none
+                    rounded-full
+                    text-on-surface
+                    placeholder:text-outline
+                    focus:outline-none
+                    focus:ring-2
+                    focus:ring-primary/30
+                    transition-all
+                    duration-200
+                    "
+                    name="search"
+                    value="{{ search_value }}"
+                    placeholder="Explore o blog..."
+                    type="text"
+                />
+
+                <button
+                    class="
+                    absolute right-2 top-1/2 -translate-y-1/2
+                    h-10 w-10
+                    flex items-center justify-center
+                    rounded-full
+                    bg-inverse-on-surface
+                    text-on-secondary
+                    hover:brightness-110
+                    transition
+                    duration-200
+                    cursor-pointer
+                    "
+                >
+                    <span class="material-symbols-outlined">search</span>
+                </button>
+            </form>
         </div>
     </div>
-</div>
 {% endif %}

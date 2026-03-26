@@ -8,23 +8,32 @@
         {% include "blog/partials/header_post.html" %}
 
         <!-- Featured Image -->
-        <div class="w-full h-[614px] md:h-[819px] rounded-xl overflow-hidden mb-20 bg-surface-container">
-            <img class="w-full h-full object-cover" data-alt="Modern architectural structure near the ocean coast" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2HNkPPbZxf543jugKbeDLpzHsOHLNLq-ajiQaq0pDQNDF5eYHomN1JjMNfOYNv2-G0e9awY0yKRQ0yMZxG20hkOgStp7WUHBZR2OPeDJvQ9tODdyl0XKkmjG7bNCQku0gICkNnbQ91InQYSMfYWsOQLsOK6EF0S0FHzzdNit33gEpUVnYhoJHk0Anz36OGvWFa260KEykLcbNLSaVuY4xarCQdik5ZSpyj4tYTutZacboDEl_h0lMnYHI1qYOYOrhNhQP0JEP5g"/>
-        </div>
+        {% if post.cover and post.cover_in_post_content %}
+            <div class="w-full h-[614px] md:h-[819px] rounded-xl overflow-hidden mb-20 bg-surface-container">
+                <img class="w-full h-full object-cover" data-alt="Modern architectural structure near the ocean coast" src="{{ post.cover.url }}"/>
+            </div>
+        {% endif %}
 
         <!-- Main Content Area -->
         <article class="lg:col-span-8 editorial-content">
-            <p class="text-xl text-secondary-dim font-medium leading-relaxed italic mb-12">
-                As rising sea levels redefine the boundaries of our inhabited world, a new wave of structural thought is emerging—one that doesn't just resist the water, but dialogues with it.
-            </p>
+            {% if post.excerpt %}
+                <p class="text-xl text-secondary-dim font-medium leading-relaxed italic mb-12">
+                    {{ post.excerpt | safe }}
+                </p>
+            {% endif %}
+
+            {% if post.content %}
+                {{ post.content | safe }}
+            {% endif %}
             
         </article>
-        <!-- Tags -->
-        <div class="mt-16 flex flex-wrap gap-3">
-        <a class="px-4 py-2 bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors" href="#">Architecture</a>
-        <a class="px-4 py-2 bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors" href="#">Sustainability</a>
-        <a class="px-4 py-2 bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors" href="#">Coastal Design</a>
-        <a class="px-4 py-2 bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors" href="#">Environment</a>
-        </div>
+        {% if post.tags.all %}
+            <!-- Tags -->
+            <div class="mt-16 flex flex-wrap gap-3">
+                {% for tag in post.tags.all %}
+                    <a class="px-4 py-2 bg-surface-container-low text-on-surface-variant text-xs font-bold tracking-widest uppercase hover:bg-surface-container transition-colors" href="{% url 'blog:tag' tag.slug %}">{{ tag.name }}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
     </main>
 {% endblock content %}

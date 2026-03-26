@@ -1,9 +1,29 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django_summernote.models import AbstractAttachment
 from utils.rands import slugify_new
+from utils.images import resize_image
+from django.urls import reverse
 
 # Create your models here.
+
+class PostAttachment(AbstractAttachment):
+    def save(self, *args, **kwargs):
+        if not self.name:
+            self.name = self.file.name
+
+        current_file_name = str(self.file.name)
+        super_save = super().save(*args, **kwargs)
+        file_changed = False
+
+        if self.file:
+            file_changed = current_file_name != self.file.name
+
+        if file_changed:
+            resize_image(self.file, 900, True, 70)
+
+        return super_save
 
 class Tag(models.Model):
     class Meta:
@@ -43,11 +63,16 @@ class Category(models.Model):
             self.slug = slugify_new(self.name, 4)
         return super().save(*args, **kwargs)
 
+class PageManager(models.Manager):
+    def get_published(self):
+        return self.filter(is_published=True).order_by('-pk')
 
 class Page(models.Model):
     class Meta:
         verbose_name = 'Page'
         verbose_name_plural = 'Pages'
+    
+    objects = PageManager()
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(
@@ -57,23 +82,21 @@ class Page(models.Model):
     is_published = models.BooleanField(default=False)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-   # Define a data apenas quando o objeto é criado
     created_at = models.DateTimeField(auto_now_add=True)
-    # Atualiza a data toda vez que o objeto é editado.
     updated_at = models.DateTimeField(blank=True, null=True, editable=False)
-    # Gerenciado manualmente no save() baseado no status
     published_at = models.DateTimeField(editable=False, blank=True, null=True)
 
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('blog:page', args=[self.slug])
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify_new(self.title, 4)
-        # Lógica do Updated_at (Apenas se já existir no banco)
         if self.pk:  # Se tem Primary Key, o objeto já foi criado anteriormente
             self.updated_at = timezone.now()
-        # Lógica para data de publicação
         if self.is_published and not self.published_at:
             self.published_at = timezone.now()
         elif not self.is_published:
@@ -82,10 +105,16 @@ class Page(models.Model):
         return super().save(*args, **kwargs)
 
 
+class PostManager(models.Manager):
+    def get_published(self):
+        return self.filter(is_published=True).order_by('-pk')
+
 class Post(models.Model):
     class Meta:
         verbose_name = 'Post'
         verbose_name_plural = 'Posts'
+    
+    objects = PostManager()
 
     title = models.CharField(max_length=65,)
     slug = models.SlugField(
@@ -132,6 +161,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('blog:post', args=[self.slug])
+
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify_new(self.title, 4)
@@ -141,5 +173,15 @@ class Post(models.Model):
             self.published_at = timezone.now()
         elif not self.is_published:
             self.published_at = None
-        
-        return super().save(*args, **kwargs)
+
+        current_cover_name = str(self.cover.name)
+        super_save = super().save(*args, **kwargs)
+        cover_changed = False
+
+        if self.cover:
+            cover_changed = current_cover_name != self.cover.name
+
+        if cover_changed:
+            resize_image(self.cover, 1440, True, 80)
+
+        return super_save

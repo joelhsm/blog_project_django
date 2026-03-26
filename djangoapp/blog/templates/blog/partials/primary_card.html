@@ -1,37 +1,46 @@
-<article class="md:col-span-8 group cursor-pointer">
-    <div
-        class="bg-surface-container-lowest overflow-hidden transition-colors duration-500 hover:bg-surface-container-high">
-        <div class="relative aspect-[16/9] mb-8 overflow-hidden">
-            <img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
-                data-alt="Abstract minimalist desk setup with notebook and pen"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2NESZS33HQ_MsWlc6qXMYix11WpMzaSe0sAIjort1gSgn7HBML7iBZOA_ZiJEDt_SREO6tm4QvgqrSjJpfTkpGQLl8jF9FDm8BdFmXVg1QD3a9Lc8tx8fBlkzl-n4TCyKQ3lkpwsqNcewuY0Thv6pmesSTgoqgNBEQTsDeditSv6sw_lSOuemD-h4OvVzygg44-EHPZVJ5f8ygt6I72o9IpbCIwup9Wp0XqlEfe_SBThRHhLcI2EX69rOaeIyVa5OB4GrRAg28Q" />
-            <div class="absolute top-6 left-6">
-                <span
-                    class="bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label text-[10px] font-bold tracking-widest uppercase">ESSAY</span>
+{% if page_obj %}
+    <article class="md:col-span-8 group">
+        <div
+            class="bg-surface-container-lowest overflow-hidden transition-colors duration-500 hover:bg-surface-container-high">
+            {% if page_obj.0.cover %}
+                <div class="relative aspect-[16/9] mb-8 overflow-hidden">
+                    <img class="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
+                        data-alt="Abstract minimalist desk setup with notebook and pen"
+                        src="{{ page_obj.0.cover.url }}" />
+                    {% if page_obj.0.category %}
+                        <div class="absolute top-6 left-6">
+                            <a href="{{ page_obj.0.category.get_absolute_url }}"
+                                class="bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label text-[10px] font-bold tracking-widest uppercase">{{ page_obj.0.category.name }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="px-2">
+                <div class="flex items-center gap-4 mb-4">
+                    <span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">{{ page_obj.0.created_at|date:"F j, Y" }}</span>
+                    <span class="w-1 h-1 bg-outline-variant rounded-full"></span>
+                    <span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">12 MIN DE
+                        LEITURA</span>
+                </div>
+                {% if page_obj.0.title %}
+                    <h3
+                        class="text-4xl md:text-5xl font-headline text-on-surface mb-6 leading-tight group-hover:text-primary transition-colors">
+                        {{ page_obj.0.title }}
+                    </h3>
+                {% endif %}
+                {% if page_obj.0.excerpt %}
+                    <p class="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-2xl">
+                        {{ page_obj.0.excerpt }}
+                    </p>
+                {% endif %}
+                <a  
+                    href="{{ page_obj.0.get_absolute_url }}"
+                    class="group/btn flex items-center gap-2 font-label text-xs font-bold tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors">
+                    Leia mais
+                    <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform"
+                        data-icon="arrow_forward">arrow_forward</span>
+                </a>
             </div>
         </div>
-        <div class="px-2">
-            <div class="flex items-center gap-4 mb-4">
-                <span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">MARCH 12,
-                    2024</span>
-                <span class="w-1 h-1 bg-outline-variant rounded-full"></span>
-                <span class="font-label text-xs text-on-surface-variant font-bold tracking-widest uppercase">12 MIN
-                    READ</span>
-            </div>
-            <h3
-                class="text-4xl md:text-5xl font-headline text-on-surface mb-6 leading-tight group-hover:text-primary transition-colors">
-                The Quiet Architecture of Digital Concentration
-            </h3>
-            <p class="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-2xl">
-                How we build spaces for focus in an era of engineered distraction. An exploration into the philosophy of
-                deep work and the digital tools that either facilitate or destroy our creative momentum.
-            </p>
-            <button
-                class="group/btn flex items-center gap-2 font-label text-xs font-bold tracking-[0.2em] uppercase text-on-surface hover:text-primary transition-colors">
-                Read More
-                <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform"
-                    data-icon="arrow_forward">arrow_forward</span>
-            </button>
-        </div>
-    </div>
-</article>
+    </article>
+{% endif %}

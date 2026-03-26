@@ -51,5 +51,12 @@ class MenuLink(models.Model):
     new_tab = models.BooleanField(default=False)
     site_setup = models.ForeignKey('SiteSetup', on_delete=models.CASCADE, blank=True, null=True, default=None)
 
+    def save(self, *args, **kwargs):
+        if self.url_or_path:
+            url_or_path = str(self.url_or_path).strip()
+            if not url_or_path.startswith(('http://', 'https://', '/')):
+                self.url_or_path = f'/{url_or_path}'
+        return super().save(*args, **kwargs)
+
     def __str__(self):
         return self.text

@@ -55,6 +55,7 @@
   --color-tertiary-container: #dcddfe;
   --color-on-tertiary-fixed: #393c55;
   --color-on-error-container: #752121;
+  --color-ring-primary: #515f74;
 
   /* Fonts */
   --font-headline: "Newsreader", serif;
@@ -66,6 +67,9 @@
   --radius-lg: 0.25rem;
   --radius-xl: 0.5rem;
   --radius-full: 0.75rem;
+
+  /* Breakpoints */
+  --breakpoint-md: 65rem;
 }
 
 @source "../../../**/*";
