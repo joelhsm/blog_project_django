@@ -9,7 +9,7 @@
                         src="{{ page_obj.0.cover.url }}" />
                     {% if page_obj.0.category %}
                         <div class="absolute top-6 left-6">
-                            <a href="{{ page_obj.0.category.get_absolute_url }}"
+                            <a href="{% url 'blog:category' page_obj.0.category.slug %}"
                                 class="bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label text-[10px] font-bold tracking-widest uppercase">{{ page_obj.0.category.name }}</a>
                         </div>
                     {% endif %}
